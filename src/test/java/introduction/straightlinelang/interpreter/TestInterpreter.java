@@ -1,12 +1,11 @@
-package introduction.straightlinelang;
+package introduction.straightlinelang.interpreter;
 
 import introduction.straightlinelang.ast.*;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-public class TestMaxArgs {
+public class TestInterpreter {
     @Test
-    void testMaxArgs() {
+    void testInterpreter() {
         Stm prog = new CompoundStm(
             new AssignStm("a", new OpExp(new NumExp(5), Oper.PLUS, new NumExp(3))),
             new CompoundStm(
@@ -25,7 +24,6 @@ public class TestMaxArgs {
                 new PrintStm(new LastExpList(new IdExp("b")))
             )
         );
-        int maxArgs = Util.maxArgs(prog);
-        Assertions.assertEquals(maxArgs, 2);
+        new Interpreter().interp(prog);
     }
 }

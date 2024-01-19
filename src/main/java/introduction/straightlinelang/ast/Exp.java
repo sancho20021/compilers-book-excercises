@@ -1,5 +1,6 @@
 package introduction.straightlinelang.ast;
 
-public abstract class Exp {
-    public abstract <R> R accept(AstVisitor<R> visitor);
+import util.Pair;
+
+public sealed interface Exp permits EseqExp, IdExp, NumExp, OpExp {
 }

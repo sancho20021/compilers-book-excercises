@@ -1,7 +1,6 @@
 package introduction.straightlinelang.ast;
 
-public abstract class ExpList {
-    public abstract <R> R accept(AstVisitor<R> visitor);
 
-    public abstract int length();
+public sealed interface ExpList permits PairExpList, LastExpList {
+    int length();
 }
